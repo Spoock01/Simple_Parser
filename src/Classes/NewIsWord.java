@@ -40,8 +40,8 @@ public class NewIsWord {
   
                 String pos = token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
                 
-                tokens.add(new Tokens(word, NLPClassification.Classification(pos),
-                                        NLPClassification.GrammaticalFeatures(pos)));
+                tokens.add(new Tokens(word, NLPClassification.classification(pos),
+                                        NLPClassification.grammaticalFeatures(pos)));
 
             }
         }

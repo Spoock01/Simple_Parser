@@ -2,7 +2,7 @@ package Classes;
 
 public class NLPClassification {
     
-    public static String Classification (String abr){
+    public static String classification (String abr){
         
         if(abr.equals("DT") || abr.equals("WDT"))
             return "Determiner";
@@ -27,8 +27,7 @@ public class NLPClassification {
             return "Error.";
     }
     
-    public static String GrammaticalFeatures(String abr){
-        
+    public static String grammaticalFeatures(String abr){
       
         if(abr.equals("NN") || abr.equals("NNP")){
             return "Singular";
