@@ -32,8 +32,6 @@ public class ValidWord {
             String str = "https://od-api.oxforddictionaries.com:443/api/v1/inflections/" + _language + "/" + _word.toLowerCase();
 
             try {
-//                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");;
-//                System.out.println("Conectando a api\n\n\n");
                 _url = new URL(str);
                 HttpsURLConnection urlConnection = (HttpsURLConnection) _url.openConnection();
                 urlConnection.setRequestProperty("Accept", "application/json");
@@ -46,6 +44,7 @@ public class ValidWord {
             } catch (MalformedURLException ex) {
                 System.out.println("Malformed");
             } catch (IOException ex) {
+                System.out.println("ERRO NA PALAVRA: ");
                 return false;
             }
         }

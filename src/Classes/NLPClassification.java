@@ -38,9 +38,10 @@ public class NLPClassification {
             case "VBN":
             case "VBP":
             case "VBZ":
+            case "MD":
                 return "Verb";
             default:
-                return "Error.";
+                return "Error." + abr;
         }
     }
     
@@ -57,6 +58,8 @@ public class NLPClassification {
                 return "First Second Singular";      
             case "VBZ":
                 return "Third Singular";
+            case "MD":
+                return "First Person Singular Second Person Third Person Plural Third Person Singular";
             default:
                 break;
         }
