@@ -130,6 +130,9 @@ public class Tela extends javax.swing.JFrame {
                 ip.run();
                 
                 if(_check){
+                    new Speech().speak(txtField.getText());
+                    txtField.setText("");
+                }else{
                     txtField.setText("");
                 }
             }

@@ -44,7 +44,7 @@ public class ValidWord {
             } catch (MalformedURLException ex) {
                 System.out.println("Malformed");
             } catch (IOException ex) {
-                System.out.println("ERRO NA PALAVRA: ");
+                System.out.println("ERRO NA PALAVRA: " + _word);
                 return false;
             }
         }
