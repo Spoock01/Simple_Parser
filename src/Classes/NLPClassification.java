@@ -34,9 +34,9 @@ public class NLPClassification {
         }else if(abr.equals("NNS") || abr.equals("NNPS")){
             return "Plural";
         }else if(abr.equals("VBP")){
-            return "First Second Singular";
+            return "First Person Singular Second Person Third Person Plural";
         }else if(abr.equals("VBZ")){
-            return "Third Singular";
+            return "Third Person Singular";
         }      
         return "None";
     }

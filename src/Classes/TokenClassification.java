@@ -14,6 +14,8 @@ public class TokenClassification {
 
     public ArrayList<Tokens> run(String text){
         
+        ReadFiles rf = null;
+        
         ArrayList<Tokens> tokens = new ArrayList<>();
         // creates a StanfordCoreNLP object, with POS tagging, lemmatization, NER, parsing, and coreference resolution
         
@@ -32,10 +34,24 @@ public class TokenClassification {
   
                 String pos = token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
                 
-                if(new ValidWord(word.toLowerCase()).run())
+                if(new ValidWord(word.toLowerCase()).run()){
                     tokens.add(new Tokens(word, NLPClassification.classification(pos),
                                         NLPClassification.grammaticalFeatures(pos)));
-                else{
+                    
+                    if(tokens.get(tokens.size()-1).getClassification().equals("Verb")){
+                        
+                        rf = new ReadFiles(tokens.get(tokens.size()-1), "src/Files/verbs.txt");
+                        rf.openFile();
+                        tokens.set(tokens.size()-1, rf.checkTokenFile());
+                        
+                    }else if(tokens.get(tokens.size()-1).getClassification().equals("Pronoun") ||
+                             tokens.get(tokens.size()-1).getClassification().equals("Noun") ||
+                             tokens.get(tokens.size()-1).getClassification().equals("Determiner")){
+                        rf = new ReadFiles(tokens.get(tokens.size()-1), "src/Files/person.txt");
+                        rf.openFile();
+                        tokens.set(tokens.size()-1, rf.checkTokenFile());
+                    }
+                }else{
                     String str = "";
                     for(int i = 0; i < word.length(); i++)
                         str += word.charAt(i) + ".\n";

@@ -1,0 +1,11 @@
+i/Pronoun/First Person Singular
+he/Pronoun/Third Person Singular
+she/Pronoun/Third Person Singular
+it/Pronoun/Third Person Singular
+you/Pronoun/Second Person
+we/Pronoun/Third Person Plural
+they/Pronoun/Third Person Plural
+this/Special Determiner/Singular
+these/Special Determiner/Plural
+that/Special Determiner/Singular
+those/Special Determiner/Plural
