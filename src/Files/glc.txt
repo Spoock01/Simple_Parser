@@ -1,0 +1,11 @@
+Frase -> SintagmaNominal SintagmaVerbal.
+SintagmaNominal -> Artigo Substantivo | Pronome | Substantivo
+SintagmaVerbal -> Verbo ContinuacaoFrase
+ContinuacaoFrase -> Preposição ContinuacaoFrase | Verbo ContinuacaoFrase | Artigo Substantivo ContinuaFrase | Artigo Adjetivo ContinuacaoFrase
+				  | Substantivo ContinuacaoFrase | Adverbio ContinuacaoFrase | Adjetivo ContinuacaoFrase | Pronome ContinuaFrase | Vazio
+Pronome -> PronomesDaApi
+Artigo -> ArtigoDaApi
+Adjetivo -> AdjetivoDaApi
+Substantivo -> SubstantivoDaApi
+Preposição -> PreposiçãoDaApi
+Verbo -> VerboDaApi

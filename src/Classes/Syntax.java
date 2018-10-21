@@ -160,10 +160,19 @@ public class Syntax {
 
     public boolean continuacaoFrase(){
         
-        if(preposicao() || verbo() || determinador() || substantivo()
+        if(preposicao() || verbo() || substantivo()
         || adverbio() || adjetivo() || pronome()){
             
-            continuacaoFrase();
+           return continuacaoFrase();
+        }else if (determinador()){
+            if(substantivo()){
+               return continuacaoFrase();
+            }else if(adjetivo()){
+                return continuacaoFrase();
+            }else{
+                speak("Expecting Noun or Adjective.");
+                return false;
+            }
         }
         
         return true;
