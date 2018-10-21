@@ -1,13 +1,14 @@
 package Interface;
 
+//import Classes.IsPhrase;
+//import Classes.IsWord;
 import Classes.IsPhrase;
-import Classes.IsWord;
-import Classes.NewIsPhrase;
+import Classes.Speech;
 import Classes.Tokens;
+import Classes.ValidWord;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.Properties;
 import javax.swing.SwingConstants;
 
 public class Tela extends javax.swing.JFrame {
@@ -21,8 +22,12 @@ public class Tela extends javax.swing.JFrame {
         _lastIndexDot = 0;
         _check = false;
         _tokens = new ArrayList<>();
+        _props = new Properties();
+        _props.setProperty("annotators", "tokenize, ssplit, pos, lemma, parse");
+        _pipeline = new StanfordCoreNLP(_props);
+        new Speech().speak("Welcome to our program.");
+        new ValidWord("hello").run();
         
-        //new IsWord("space", 0, 0).run();
     }
     
     int checking (String getText, String type){
@@ -37,7 +42,6 @@ public class Tela extends javax.swing.JFrame {
     }
     
     
-    
     void printExceptionError(char evt){
         
         String exception = "<html>Erro encontrado.<br/>";
@@ -48,7 +52,6 @@ public class Tela extends javax.swing.JFrame {
         exception += "Char do teclado: " + evt + "<br/>";
         lblResult.setHorizontalTextPosition(SwingConstants.CENTER);
         lblResult.setText(exception);
-
         
     }
     
@@ -122,14 +125,11 @@ public class Tela extends javax.swing.JFrame {
 
                 _subs = txtField.getText().substring(_lastIndexDot, txtField.getText().lastIndexOf(_dot)) + " .";
                 
-                NewIsPhrase ip = new NewIsPhrase(_subs);
+                IsPhrase ip = new IsPhrase(_subs);
                 ip.run();
                 
                 if(_check){
-                    System.out.println("Deu certo a frase. Recebendo indice do ponto: " + txtField.getText().lastIndexOf(_dot));
-                    _lastIndexDot = txtField.getText().lastIndexOf(_dot) + 1;
                     txtField.setText("");
-                    
                 }
             }
         }catch(Exception e){
@@ -183,4 +183,6 @@ public class Tela extends javax.swing.JFrame {
     private String _subs;
     public static ArrayList<Tokens> _tokens;
     public static boolean _check;
+    public static Properties _props;
+    public static StanfordCoreNLP _pipeline;
 }

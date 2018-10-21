@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class IsPhrase {
 
-    private final ArrayList<Tokens> _tokenTable;
+    private ArrayList<Tokens> _tokenTable;
     private final String _phrase;
     public static boolean _wrongWord;
 
@@ -23,30 +23,38 @@ public class IsPhrase {
             Println para melhorar visualização de tokens no console
         */
         System.out.println("\n");
+        String message = "";
         
         for (String str : tokens) {
-            
-            if(!(str.isEmpty() || str.equals(" ")) && !str.equals("."))
-                _tokenTable.add(new IsWord(str).run());
-            
-            if (str.equals(".")) {
-                _tokenTable.add(new Tokens(".", "Dot", "Dot"));
-            }
-            
+            if(!str.equals("."))
+                message += str + " ";
         }
+        
+        
+        TokenClassification niw = new TokenClassification();
+        _tokenTable = niw.run(message);
+        
+        if(_tokenTable != null)
+            _tokenTable.add(new Tokens(".", "Dot", "Dot"));
     }
 
     void printTokens() {
-        _tokenTable.forEach((t) -> {
-            System.out.println(t.toString());
-        });
+        
+        if(_tokenTable != null){
+            System.out.println("\n\n\n ++++++++++++Printing Tokens+++++++++++++");
+            _tokenTable.forEach((t) -> {
+                System.out.println(t.toString());
+            });
+            System.out.println("\n\n\n\n");
+        }
+        
     }
 
     public void run() {
 
         generateTokens();
         printTokens();
-        if(!_wrongWord){
+        if(!_wrongWord && _tokenTable != null){
             new Syntax(_tokenTable).analysis();
             Tela._check = true;
         }else
