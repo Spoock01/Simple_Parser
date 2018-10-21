@@ -55,9 +55,9 @@ public class NLPClassification {
             case "NNPS":
                 return "Plural";
             case "VBP":
-                return "First Second Singular";      
+                return "First Person Singular Second Person Third Person Plural";      
             case "VBZ":
-                return "Third Singular";
+                return "Third Person Singular";
             case "MD":
                 return "First Person Singular Second Person Third Person Plural Third Person Singular";
             default:
