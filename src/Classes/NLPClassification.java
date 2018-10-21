@@ -1,9 +1,9 @@
 package Classes;
 
 public class NLPClassification {
-    
-    public static String classification (String abr){
-        
+
+    public static String classification(String abr) {
+
         switch (abr) {
             case "DT":
             case "WDT":
@@ -44,9 +44,9 @@ public class NLPClassification {
                 return "Error." + abr;
         }
     }
-    
-    public static String grammaticalFeatures(String abr){
-      
+
+    public static String grammaticalFeatures(String abr) {
+
         switch (abr) {
             case "NN":
             case "NNP":
@@ -55,7 +55,7 @@ public class NLPClassification {
             case "NNPS":
                 return "Plural";
             case "VBP":
-                return "First Person Singular Second Person Third Person Plural";      
+                return "First Person Singular Second Person Third Person Plural";
             case "VBZ":
                 return "Third Person Singular";
             case "MD":
@@ -65,6 +65,5 @@ public class NLPClassification {
         }
         return "None";
     }
-    
-    
+
 }

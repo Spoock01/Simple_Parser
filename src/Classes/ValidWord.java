@@ -27,8 +27,8 @@ public class ValidWord {
 
     public boolean run() {
 
-        if (!_word.isEmpty()){
-        
+        if (!_word.isEmpty()) {
+
             String str = "https://od-api.oxforddictionaries.com:443/api/v1/inflections/" + _language + "/" + _word.toLowerCase();
 
             try {
@@ -37,7 +37,7 @@ public class ValidWord {
                 urlConnection.setRequestProperty("Accept", "application/json");
                 urlConnection.setRequestProperty("app_id", "b290c54c");
                 urlConnection.setRequestProperty("app_key", "d07d430d82bf2220c62f7f11e081f610");
-                
+
                 BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
                 reader.close();
 

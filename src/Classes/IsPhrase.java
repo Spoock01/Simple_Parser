@@ -18,46 +18,44 @@ public class IsPhrase {
     void generateTokens() {
 
         String tokens[] = _phrase.split(" ");
-        
-        /*
-            Println para melhorar visualização de tokens no console
-        */
-        System.out.println("\n");
+
         String message = "";
-        
+
         for (String str : tokens) {
-            if(!str.equals("."))
+            if (!str.equals(".")) {
                 message += str + " ";
+            }
         }
-        
-        
+
         TokenClassification niw = new TokenClassification();
         _tokenTable = niw.run(message);
-        
-        if(_tokenTable != null)
+
+        if (_tokenTable != null) {
             _tokenTable.add(new Tokens(".", "Dot", "Dot"));
+        }
     }
 
     void printTokens() {
-        
-        if(_tokenTable != null){
-            System.out.println("\n\n\n ++++++++++++Printing Tokens+++++++++++++");
+
+        if (_tokenTable != null) {
+            System.out.println("\n\n====Printing Tokens====");
             _tokenTable.forEach((t) -> {
                 System.out.println(t.toString());
             });
-            System.out.println("\n\n\n\n");
+            System.out.println("==============================\n");
         }
-        
+
     }
 
     public void run() {
 
         generateTokens();
         printTokens();
-        if(!_wrongWord && _tokenTable != null){
+        if (!_wrongWord && _tokenTable != null) {
             new Syntax(_tokenTable).analysis();
             Tela._check = true;
-        }else
+        } else {
             Tela._check = false;
+        }
     }
 }
