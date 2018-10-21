@@ -18,8 +18,8 @@ public class ValidWord {
     private final String _word;
     private final String _language = "en";
     private URL _url;
-    private BufferedReader _reader;
-    private StringBuilder _stringBuilder;
+//    private BufferedReader _reader;
+//    private StringBuilder _stringBuilder;
 
     public ValidWord(String _word) {
         this._word = _word;
@@ -32,15 +32,16 @@ public class ValidWord {
             String str = "https://od-api.oxforddictionaries.com:443/api/v1/inflections/" + _language + "/" + _word.toLowerCase();
 
             try {
-                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-                System.out.println("Conectando a api\n\n\n");
+//                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");;
+//                System.out.println("Conectando a api\n\n\n");
                 _url = new URL(str);
                 HttpsURLConnection urlConnection = (HttpsURLConnection) _url.openConnection();
                 urlConnection.setRequestProperty("Accept", "application/json");
                 urlConnection.setRequestProperty("app_id", "b290c54c");
                 urlConnection.setRequestProperty("app_key", "d07d430d82bf2220c62f7f11e081f610");
                 
-                _reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                reader.close();
 
             } catch (MalformedURLException ex) {
                 System.out.println("Malformed");

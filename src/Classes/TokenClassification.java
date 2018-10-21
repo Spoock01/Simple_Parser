@@ -15,8 +15,6 @@ public class TokenClassification {
     public ArrayList<Tokens> run(String text){
         
         ArrayList<Tokens> tokens = new ArrayList<>();
-        // creates a StanfordCoreNLP object, with POS tagging, lemmatization, NER, parsing, and coreference resolution
-        
 
         Annotation document = new Annotation(text.toUpperCase());
 

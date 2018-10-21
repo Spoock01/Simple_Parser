@@ -23,7 +23,8 @@ public class Tela extends javax.swing.JFrame {
         _check = false;
         _tokens = new ArrayList<>();
         _props = new Properties();
-        _props.setProperty("annotators", "tokenize, ssplit, pos, lemma, parse");
+        //_props.setProperty("annotators", "tokenize, ssplit, pos, lemma, parse");
+        _props.setProperty("annotators", "tokenize, ssplit, pos");
         _pipeline = new StanfordCoreNLP(_props);
         new Speech().speak("Welcome to our program.");
         new ValidWord("hello").run();

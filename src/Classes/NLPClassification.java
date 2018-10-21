@@ -4,40 +4,62 @@ public class NLPClassification {
     
     public static String classification (String abr){
         
-        if(abr.equals("DT") || abr.equals("WDT"))
-            return "Determiner";
-        else if(abr.equals("IN"))
-            return "Preposition";
-        else if(abr.equals("JJ") || abr.equals("JJR") || abr.equals("JJS"))
-            return "Adjective";
-        else if(abr.equals("NN") || abr.equals("NNS") || abr.equals("NNP") ||  abr.equals("NNP  S"))
-            return "Noun";
-        else if(abr.equals("PRP") || abr.equals("WP") || abr.equals("WP$"))
-            return "Pronoun";
-        else if(abr.equals("RB") || abr.equals("RBR") || abr.equals("RBS") || abr.equals("WRB"))
-            return "Adverb";
-        else if(abr.equals("TO"))
-            return "Preposition";
-        else if(abr.equals("UH"))
-            return "Interjection";
-        else if(abr.equals("VB") || abr.equals("VBD") || abr.equals("VBG")
-             || abr.equals("VBN") || abr.equals("VBP") || abr.equals("VBZ"))
-            return "Verb";
-        else
-            return "Error.";
+        switch (abr) {
+            case "DT":
+            case "WDT":
+                return "Determiner";
+            case "IN":
+                return "Preposition";
+            case "JJ":
+            case "JJR":
+            case "JJS":
+                return "Adjective";
+            case "NN":
+            case "NNS":
+            case "NNP":
+            case "NNPS":
+                return "Noun";
+            case "PRP":
+            case "WP":
+            case "WP$":
+                return "Pronoun";
+            case "RB":
+            case "RBR":
+            case "RBS":
+            case "WRB":
+                return "Adverb";
+            case "TO":
+                return "Preposition";
+            case "UH":
+                return "Interjection";
+            case "VB":
+            case "VBD":
+            case "VBG":
+            case "VBN":
+            case "VBP":
+            case "VBZ":
+                return "Verb";
+            default:
+                return "Error.";
+        }
     }
     
     public static String grammaticalFeatures(String abr){
       
-        if(abr.equals("NN") || abr.equals("NNP")){
-            return "Singular";
-        }else if(abr.equals("NNS") || abr.equals("NNPS")){
-            return "Plural";
-        }else if(abr.equals("VBP")){
-            return "First Second Singular";
-        }else if(abr.equals("VBZ")){
-            return "Third Singular";
-        }      
+        switch (abr) {
+            case "NN":
+            case "NNP":
+                return "Singular";
+            case "NNS":
+            case "NNPS":
+                return "Plural";
+            case "VBP":
+                return "First Second Singular";      
+            case "VBZ":
+                return "Third Singular";
+            default:
+                break;
+        }
         return "None";
     }
     
