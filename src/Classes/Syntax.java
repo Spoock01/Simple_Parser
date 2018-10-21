@@ -44,13 +44,74 @@ public class Syntax {
         return true;
     }
     
+    public boolean checkAgreement(){
+        
+        for(int i = 1; i < symbolTable.size()-1; i++){
+            
+            if(symbolTable.get(i-1).getClassification().equalsIgnoreCase("Pronoun") &&
+               symbolTable.get(i).getClassification().equalsIgnoreCase("Verb")){
+                
+                if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("First Person Singular") &&
+                   !symbolTable.get(i).getGrammaticalFeatures().contains("First Person Singular")){
+                    
+                    System.out.println("Erro de concordância First Person Pronoun Verb");
+                    return false;
+                }else if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("Third Person Singular") &&
+                   !symbolTable.get(i).getGrammaticalFeatures().contains("Third Person Singular")){
+                    
+                    System.out.println("Erro de concordância Third Person Singular Pronoun Verb");
+                    return false;
+                }else if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("Third Person Plural") &&
+                   !symbolTable.get(i).getGrammaticalFeatures().contains("Third Person Plural")){
+                    
+                    System.out.println("Erro de concordância Third Person Plural Pronoun Verb");
+                    return false;
+                }else if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("Second Person") &&
+                   !symbolTable.get(i).getGrammaticalFeatures().contains("Second Person")){
+                    
+                    System.out.println("Erro de concordância Second Person Pronoun Verb");
+                    return false;
+                }
+                
+            }else if(symbolTable.get(i-1).getClassification().equalsIgnoreCase("Special Determiner") &&
+                     symbolTable.get(i).getClassification().equalsIgnoreCase("Noun")){
+                
+                if(!(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase(symbolTable.get(i).getGrammaticalFeatures()))){
+                    
+                    System.out.println("Erro de concordância Special Determiner Noun");
+                    return false;
+                }
+                
+            }else if(symbolTable.get(i-1).getClassification().equalsIgnoreCase("Noun") &&
+                     symbolTable.get(i).getClassification().equalsIgnoreCase("Verb")){
+                
+                if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("Singular") &&
+                   !(symbolTable.get(i-1).getGrammaticalFeatures().contains("Singular"))){
+                    
+                    System.out.println("Erro de concordância Singular Noun Verb");
+                    return false;
+                }else if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("Plural") &&
+                         !(symbolTable.get(i-1).getGrammaticalFeatures().contains("Plural")))
+                    System.out.println("Erro de concordância Plural Noun Verb");
+                    return false;
+            }
+            
+        }
+        return true;
+    }
+    
     public void analysis(){
         
         if(checkRepeatedWords()){
             if(sintagmaNominal()){
                 if(sintagmaVerbal()){
                     if(currentToken.getClassification().equals("Dot")){
-                        new Speech().speak("OK");
+                        if(checkAgreement()){
+                            new Speech().speak("OK");
+                        }else{
+                            speak("Agreement Error.");
+                        }
+                            
                     }else{
                         speak("Missing dot.");
                         Tela.lblResult.setText("Missing dot.");

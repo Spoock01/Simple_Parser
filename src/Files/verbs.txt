@@ -1,0 +1,6 @@
+am/Verb/First Person Singular
+is/Verb/Third Person Singular
+are/Verb/Third Person Plural Second Person
+was/Verb/First Person Singular Third Person Singular
+were/Verb/Third Person Plural Second Person
+has/Verb/Third Person Singular
