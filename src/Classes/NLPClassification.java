@@ -40,6 +40,8 @@ public class NLPClassification {
             case "VBZ":
             case "MD":
                 return "Verb";
+            case "CD":
+                return "Number";
             default:
                 return "Error." + abr;
         }

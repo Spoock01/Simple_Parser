@@ -86,14 +86,28 @@ public class Syntax {
                      symbolTable.get(i).getClassification().equalsIgnoreCase("Verb")){
                 
                 if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("Singular") &&
-                   !(symbolTable.get(i-1).getGrammaticalFeatures().contains("Singular"))){
+                   !(symbolTable.get(i).getGrammaticalFeatures().contains("Singular"))){
                     
                     System.out.println("Erro de concordância Singular Noun Verb");
                     return false;
                 }else if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("Plural") &&
-                         !(symbolTable.get(i-1).getGrammaticalFeatures().contains("Plural")))
+                         !(symbolTable.get(i).getGrammaticalFeatures().contains("Plural"))){
                     System.out.println("Erro de concordância Plural Noun Verb");
                     return false;
+                }
+            }else if(symbolTable.get(i-1).getClassification().equalsIgnoreCase("Number") &&
+                     symbolTable.get(i).getClassification().equalsIgnoreCase("Noun")){
+                
+                if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("Singular") &&
+                   !(symbolTable.get(i).getGrammaticalFeatures().contains("Singular"))){
+                    
+                    System.out.println("Erro de concordância Singular Number Noun");
+                    return false;
+                }else if(symbolTable.get(i-1).getGrammaticalFeatures().equalsIgnoreCase("Plural") &&
+                         !(symbolTable.get(i).getGrammaticalFeatures().contains("Plural"))){
+                    System.out.println("Erro de concordância Plural Number Noun");
+                    return false;
+                }
             }
             
         }
@@ -173,6 +187,13 @@ public class Syntax {
                 speak("Expecting Noun or Adjective.");
                 return false;
             }
+        }else if(numero()){
+            if(substantivo()){
+                return continuacaoFrase();
+            }else{
+                speak("Expecting Noun");
+                return false;
+            }
         }
         
         return true;
@@ -246,6 +267,15 @@ public class Syntax {
             return true;
         }
         
+        return false;
+    }
+    
+    public boolean numero(){
+        
+        if(currentToken.getClassification().contains("Number")){
+            nextToken();
+            return true;
+        }
         return false;
     }
     

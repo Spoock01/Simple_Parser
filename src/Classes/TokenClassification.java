@@ -33,7 +33,6 @@ public class TokenClassification {
                 if (new ValidWord(word.toLowerCase()).run()) {
                     tokens.add(new Tokens(word, NLPClassification.classification(pos),
                                           NLPClassification.grammaticalFeatures(pos)));
-
                     if (tokens.get(tokens.size() - 1).getClassification().equals("Verb")) {
 
                         rf = new ReadFiles(tokens.get(tokens.size() - 1), "src/Files/verbs.txt");
@@ -46,6 +45,14 @@ public class TokenClassification {
                         rf = new ReadFiles(tokens.get(tokens.size() - 1), "src/Files/person.txt");
                         rf.openFile();
                         tokens.set(tokens.size() - 1, rf.checkTokenFile());
+                    }else if(tokens.get(tokens.size() - 1).getClassification().equals("Number")){
+                        
+                        if(tokens.get(tokens.size() - 1).getToken().equalsIgnoreCase("one")){
+                            tokens.get(tokens.size() - 1).setGrammaticalFeatures("Singular");
+                        }else{
+                            tokens.get(tokens.size() - 1).setGrammaticalFeatures("Plural");
+                        }
+                        
                     }
                 } else {
                     String str = "";

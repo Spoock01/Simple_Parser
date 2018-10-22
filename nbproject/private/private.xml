@@ -3,16 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/TextToSpeech.java</file>
             <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/TokenClassification.java</file>
-            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/Syntax.java</file>
-            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Interface/Tela.java</file>
-            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Files/person.txt</file>
+            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/Tokens.java</file>
             <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/ReadFiles.java</file>
+            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/Syntax.java</file>
+            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Files/person.txt</file>
+            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Interface/Tela.java</file>
+            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Files/glc.txt</file>
             <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/NLPClassification.java</file>
+            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/TextToSpeech.java</file>
             <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/ValidWord.java</file>
             <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Files/verbs.txt</file>
-            <file>file:/C:/Users/Edson%20Filho/Documents/NetBeansProjects/Simple_Parser/src/Classes/Tokens.java</file>
         </group>
     </open-files>
 </project-private>
